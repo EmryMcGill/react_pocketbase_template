@@ -1,0 +1,171 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue: #35A6EF;
+  --blue-tint: #3299de;
+  --text-primary: black;
+  --bg-primary: #e6ebf0;
+  --bg-primary-tint: #d4d8dc;
+  --bg-secondary: white;
+  --error: tomato;
+  --error-tint: rgb(215, 85, 62);
+  --font-size-base: 16px;
+  --font: '-apple-system', system-ui;
+  --spacing-base: 1rem;
+  --br: 8px;
+  --transition-speed: 0.1s ease-in-out;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.page {
+  display: flex;
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--text-primary);
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--bg-secondary);
+  border-radius: var(--br);
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  transition: all var(--transition-speed);
+}
+
+@media (max-width: calc(500px + 2rem)) {
+  .card {
+    padding: 1rem;
+  }
+}
+
+hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--text-primary);
+}
+
+button {
+  border: none;
+  font-family: var(--font);
+  background-color: var(--bg-primary);
+}
+
+@media (hover:hover) {
+  button:hover {
+    cursor: pointer;
+    background-color: var(--bg-primary-tint);
+  }
+}
+
+.btn_large {
+  height: 48px;
+  font-size: 18px;
+  font-weight: 500;
+  width: 100%;
+  border-radius: var(--br);
+  background-color: var(--bg-primary);
+}
+
+.btn_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  height: fit-content;
+  padding: 0.3rem;
+  border-radius: var(--br);
+  background-color: transparent;
+}
+
+@media (hover:hover) {
+  .btn_icon:hover {
+    background-color: var(--bg-primary-tint);
+  }
+}
+
+.input_label {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 3px;
+  margin-top: 1rem;
+}
+
+.input_label:first-of-type {
+  margin-top: 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  font-size: 16px;
+  font-family: var(--font);
+  height: 48px;
+  padding-left: 0.5rem;
+  border-radius: var(--br);
+  border: 1px solid var(--bg-primary-tint);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-radius: var(--br);
+  box-shadow: 0 0 0 2px #6e6e6e;
+}
+
+a {
+  text-decoration: none;
+  color: #0066ff;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.error {
+  color: var(--error);
+  margin-top: 0.5rem;
+}
