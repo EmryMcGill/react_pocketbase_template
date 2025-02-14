@@ -12,11 +12,18 @@ export const PbProvider = ({ children }) => {
 
     // define user
     const [user, setUser] = useState(pb.authStore.record);
+    const [token, setToken] = useState(pb.authStore.token)
 
     useEffect(() => {
+        if (pb.authStore.isValid) {
+            // refresh auth token
+            pb.collection("users").authRefresh();
+        }
+        
         // listen for changes to the authStore state
-        const unsubscribe = pb.authStore.onChange(record => {
-            setUser(record)
+        const unsubscribe = pb.authStore.onChange((token, record) => {
+            setUser(record);
+            setToken(token);
         });
         
         return () => {
